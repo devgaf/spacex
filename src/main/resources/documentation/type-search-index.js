@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"gaston.fernandez.spacex.configs","l":"EnvironmentConfiguration"},{"p":"gaston.fernandez.spacex","l":"SpacexApplication"}];updateSearchResults();

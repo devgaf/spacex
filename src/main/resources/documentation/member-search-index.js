@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"gaston.fernandez.spacex.configs","c":"EnvironmentConfiguration","l":"EnvironmentConfiguration()","u":"%3Cinit%3E()"},{"p":"gaston.fernandez.spacex","c":"SpacexApplication","l":"main(String[])","u":"main(java.lang.String[])"},{"p":"gaston.fernandez.spacex","c":"SpacexApplication","l":"SpacexApplication()","u":"%3Cinit%3E()"}];updateSearchResults();
