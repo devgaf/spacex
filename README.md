@@ -1,5 +1,5 @@
 ## Descripción del proyecto
-Este proyecto espara obtener datos de SpaceX y mapearlos para disponerlos datos en un formato espesifico
+Este proyecto es para obtener datos de SpaceX y mapearlos para disponerlos datos en un formato espesifico
 ## Documentacion
 
 #### Javadoc
