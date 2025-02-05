@@ -31,8 +31,29 @@ Poner en marcha el servidor
 ```
 
 ## Endpoints
-aca describe cada endpoint y su uso
+Aca se describe cada endpoint y su uso
 
+### GET /launches
+Obtiene todos los lanzamientos de SpaceX
+
+#### Ejemplo de respuesta JSON
+```json
+[
+    {
+        "flight_number": int,
+        "mission_name": string,
+        "details": string,
+        "rocket": {
+            "rocket_id": string,
+            "rocket_name": string,
+            "active": boolean,
+            "cost_per_launch": long,
+            "company": string
+        }
+    },
+]
+
+```
 ---
 
 ## Autor
