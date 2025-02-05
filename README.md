@@ -3,7 +3,7 @@ Este proyecto espara obtener datos de SpaceX y mapearlos para disponerlos datos 
 ## Documentacion
 
 #### Javadoc
-Ir a la carpeta spacex/src/main/resources/documentation y abra el archivo index.html
+Tras clonar el proyecto ir a la carpeta spacex/src/main/resources/documentation y abra el archivo index.html
 
 ## Uso
 
