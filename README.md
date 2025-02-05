@@ -1,5 +1,9 @@
 ## Descripción del proyecto
 Este proyecto espara obtener datos de SpaceX y mapearlos para disponerlos datos en un formato espesifico
+## Documentacion
+
+#### Javadoc
+Tras clonar el proyecto ir a la carpeta spacex/src/main/resources/documentation y abra el archivo index.html
 
 ## Uso
 
@@ -26,7 +30,31 @@ Poner en marcha el servidor
 ```bash
   mvn spring-boot:run
 ```
----
+
+## Endpoints
+Aca se describe cada endpoint y su uso
+
+### GET /launches
+Obtiene todos los lanzamientos de SpaceX
+
+#### Ejemplo de respuesta JSON
+```json
+[
+    {
+        "flight_number": int,
+        "mission_name": string,
+        "details": string,
+        "rocket": {
+            "rocket_id": string,
+            "rocket_name": string,
+            "active": boolean,
+            "cost_per_launch": long,
+            "company": string
+        }
+    },
+]
+
+```
 ---
 
 ## Autor
