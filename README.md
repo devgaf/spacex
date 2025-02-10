@@ -1,8 +1,11 @@
-## Descripción del proyecto
-Proyecto que obtiene datos de dos APIs externas y fusiona los datos obtenidos en un formato especifico 
+# Descripción del proyecto
+
+Proyecto que obtiene datos de dos APIs externas y fusiona los datos obtenidos en un formato especifico
+
 ## Documentacion
 
-#### Javadoc
+### Javadoc
+
 Tras clonar el proyecto ir a la carpeta spacex/src/main/resources/documentation y abra el archivo index.html
 
 ## Uso
@@ -32,12 +35,15 @@ Poner en marcha el servidor
 ```
 
 ## Endpoints
+
 Aca se describe cada endpoint y su uso
 
 ### GET /launches
+
 Obtiene todos los lanzamientos de SpaceX
 
 #### Ejemplo de respuesta JSON
+
 ```json
 [
     {
@@ -55,17 +61,22 @@ Obtiene todos los lanzamientos de SpaceX
 ]
 
 ```
+
 ---
 
 ## Autor
-#### Hola, soy Gaston Fernandez👋 
+
+### Hola, soy Gaston Fernandez👋
+>
 > *Desarrollador de sistemas*
 
-Puede vistiar mi LinkedIn (https://www.linkedin.com/in/gastonfdz)
+Puede vistiar mi LinkedIn (<https://www.linkedin.com/in/gastonfdz>)
+
 ### 🛠 Skills
-- Java 
-    - Spring Boot
-    - JPA
+
+- Java
+  - Spring Boot
+  - JPA
 - SQL
-- Angular 
+- Angular
 - Bootstrap
