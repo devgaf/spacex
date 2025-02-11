@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 
 /**
  * Clase que representa un lanzamiento de SpaceX.
- * <p>
  * <ul>
  *      <li> Se utiliza la anotacion @JsonProperty para mapear los atributos de la respuesta de la API</li>
  *      <li> Se utiliza la anotacion @JsonIgnoreProperties para ignorar los atributos que no se encuentren en la clase</li>

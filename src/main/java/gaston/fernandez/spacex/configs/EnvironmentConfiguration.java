@@ -6,7 +6,7 @@ import org.springframework.context.annotation.PropertySource;
 
 import lombok.Getter;
 /**
- * Esta clase se encarga de leer las variables de entorno del archivo .env utilizando la anotación @Configuration para indicarle a Spring que esta clase es una clase de configuración, la anotación @PropertySource para indicarle a Spring que lea las variables de entorno del archivo .env y la anotación de Lombok @Getter para generar los getters de las variables de la clase (launchesUrl y rocketsUrl).
+ * Esta clase se encarga de leer las variables de entorno del archivo .env utilizando la anotacion @Configuration para indicarle a Spring que esta clase es una clase de configuracion, la anotacion @PropertySource para indicarle a Spring que lea las variables de entorno del archivo .env y la anotacion de Lombok @Getter para generar los getters de las variables de la clase (launchesUrl y rocketsUrl).
  */
 @Configuration
 @PropertySource("file:.env")

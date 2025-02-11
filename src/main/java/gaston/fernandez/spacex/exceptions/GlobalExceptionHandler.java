@@ -11,7 +11,7 @@ import org.springframework.web.servlet.resource.NoResourceFoundException;
 import lombok.extern.slf4j.Slf4j;
 
 /**
- * Clase que maneja las excepciones globales de la aplicación
+ * Clase que maneja las excepciones globales de la aplicacion
  * logueo de errores con SLF4J y manejo de excepciones
  * 
  */
@@ -24,9 +24,9 @@ public class GlobalExceptionHandler {
 
 	
 	/**
-	 * Manejo global de la excepción NoContentException
+	 * Manejo global de la excepcion NoContentException
 	 * 
-	 * @param ex la excepción lanzada
+	 * @param ex la excepcion lanzada
 	 * @return una respuesta con un mensaje de error y un estado HTTP 204
 	 */
 	@ExceptionHandler(NoContentException.class)
@@ -36,9 +36,9 @@ public class GlobalExceptionHandler {
 	}
 
 	/**
-	 * Manejo global de la excepción SQLException
+	 * Manejo global de la excepcion SQLException
 	 * 
-	 * @param ex la excepción lanzada
+	 * @param ex la excepcion lanzada
 	 * @return una respuesta con un mensaje de error y un estado HTTP 500
 	 */
 	@ExceptionHandler(SQLException.class)
@@ -48,9 +48,9 @@ public class GlobalExceptionHandler {
 	}
 
 	/**
-	 * Manejo global de la excepción SSLConfigurationException
+	 * Manejo global de la excepcion SSLConfigurationException
 	 * 
-	 * @param ex la excepción lanzada
+	 * @param ex la excepcion lanzada
 	 * @return una respuesta con un mensaje de error y un estado HTTP 500
 	 */
 	@ExceptionHandler(SSLConfigurationException.class)
@@ -60,9 +60,9 @@ public class GlobalExceptionHandler {
 	}
 
 	/**
-	 * Manejo global de la excepción NoResourceFoundException
+	 * Manejo global de la excepcion NoResourceFoundException
 	 * 
-	 * @param ex la excepción lanzada
+	 * @param ex la excepcion lanzada
 	 * @return una respuesta con un mensaje de error y un estado HTTP 404
 	 */
 	@ExceptionHandler(NoResourceFoundException.class)
@@ -72,9 +72,9 @@ public class GlobalExceptionHandler {
 	}
 
 	/**
-	 * Manejo global de la excepciónes
+	 * Manejo global de la excepciones
 	 * 
-	 * @param ex la excepción lanzada
+	 * @param ex la excepcion lanzada
 	 * @return una respuesta con un mensaje de error y un estado HTTP 500
 	 */
 	@ExceptionHandler(Exception.class)
