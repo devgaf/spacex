@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>gaston.fernandez</groupId>
 	<artifactId>spacex</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>1.1.0</version>
 	<name>spacex</name>
 	<description>API que obtiene datos de SpaceX y mapearlos para disponerlos datos en un formato espesifico</description>
 	<url/>

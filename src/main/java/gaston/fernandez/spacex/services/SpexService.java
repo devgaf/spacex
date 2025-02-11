@@ -3,6 +3,7 @@ package gaston.fernandez.spacex.services;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import org.springframework.beans.factory.annotation.Value;
@@ -13,6 +14,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import gaston.fernandez.spacex.collections.FavoritesList;
 import gaston.fernandez.spacex.dtos.Rocket;
 import gaston.fernandez.spacex.dtos.SpexLunches;
 import gaston.fernandez.spacex.exceptions.NoContentException;
@@ -32,6 +34,10 @@ public class SpexService {
 
     @Value("${ROCKETS_URL}")
     private String rocketsUrl;
+
+    private FavoritesList favoritesList = new FavoritesList();
+
+    private List<SpexLunches> lunches = new ArrayList<>();
 
     private final RestTemplate restTemplate;
 
@@ -162,7 +168,7 @@ public class SpexService {
     }
 
     /**
-     * Serializa los lanzamientos de SpaceX asociándolos con sus respectivos cohetes.
+     * Serializa los lanzamientos de SpaceX asociandolos con sus respectivos cohetes.
      * <p>
      * Obtiene la lista de lanzamientos y el mapa de cohetes utilizando un ObjectMapper.
      * Para cada lanzamiento, establece el cohete correspondiente basado en el rocketId.
@@ -170,7 +176,7 @@ public class SpexService {
      * Si falla al obtener el contenido, lanza una IOException.
      * Si falla por cualquier otro motivo, lanza una Exception.
      * 
-     * @return una lista de objetos SpexLunches con la información actualizada de los cohetes
+     * @return una lista de objetos SpexLunches con la informacion actualizada de los cohetes
      * @throws IOException si falla al obtener el contenido
      * @throws SSLConfigurationException si falla en configurar SSL
      * @throws Exception si falla por cualquier otro motivo
@@ -183,7 +189,6 @@ public class SpexService {
         List<SpexLunches> response = getLaunches(objectMapper);
         Map<String, Rocket> rocket = getRockets(objectMapper);
         response.forEach(launches -> launches.setRocket(rocket.get(launches.getRocket().getRocketId())));
-
         return response;
     }
 
@@ -199,7 +204,65 @@ public class SpexService {
      * @throws Exception                 si falla por cualquier otro motivo
      */
     public List<SpexLunches> getSpexLunches() throws IOException, SSLConfigurationException, Exception {
-        return serializeSpexLunches();
+        lunches = serializeSpexLunches();
+        return lunches;
     }
 
+    /**
+     * Retorna el lanzamiento de SpaceX cuyo numero de vuelo coincida con el parametro
+     * <code>flightNumber</code>. Si no se encuentra un lanzamiento con ese numero de
+     * vuelo, devuelve <code>null</code>.
+     * 
+     * @param flightNumber el numero de vuelo a buscar
+     * @return el lanzamiento de SpaceX con el numero de vuelo especificado o
+     *         <code>null</code> si no se encuentra
+     */
+    private SpexLunches getSpexLunchesByFlightNumber(int flightNumber) {
+        return lunches.stream().filter(launch -> launch.getFlightNumber() == flightNumber).findFirst().orElse(null);
+    }
+
+    /**
+     * Retorna la lista de lanzamientos de SpaceX que se encuentran en la lista de
+     * favoritos.
+     * 
+     * @return la lista de lanzamientos favoritos
+     */
+    public List<SpexLunches> getFavoritesLunches() throws NoContentException{
+        List<SpexLunches> favorites = favoritesList.getFavorites();
+        if (favorites == null) {
+            throw new NoContentException("La lista de favoritos esta vacia");
+        }
+        return favorites;
+    }
+
+    /**
+     * Agrega un lanzamiento de SpaceX a la lista de favoritos segun su numero de vuelo.
+     * 
+     * @param flightNumber el numero de vuelo del lanzamiento que se desea agregar a la lista de favoritos
+     * @return la lista actualizada de lanzamientos favoritos
+     */
+    public List<SpexLunches> addFavoriteLaunch(int flightNumber) {
+        SpexLunches spexLunches = getSpexLunchesByFlightNumber(flightNumber);
+        if (spexLunches == null) {
+            throw new NoContentException("El despegue que intenta insertar no fue encontrado");
+        }
+        favoritesList.getFavorites().add(spexLunches);
+        return getFavoritesLunches();
+    }
+
+    /**
+     * Elimina un lanzamiento de SpaceX de la lista de favoritos segun su numero de vuelo.
+     * 
+     * @param flightNumber el numero de vuelo del lanzamiento que se desea eliminar de la lista de favoritos
+     * @return la lista actualizada de lanzamientos favoritos
+     */
+
+    public List<SpexLunches> removeFavoriteLaunch(int flightNumber) {
+        SpexLunches spexLunches = favoritesList.getFavorite(flightNumber);
+        if (spexLunches == null) {
+            throw new NoContentException("El despegue que intenta borrar de los favoritos no fue encontrado en la lista");
+        }
+        favoritesList.getFavorites().remove(spexLunches);
+        return getFavoritesLunches();
+    }
 }
